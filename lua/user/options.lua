@@ -43,6 +43,4 @@ end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
-
 vim.cmd "hi CursorLine term=bold cterm=bold guibg=Grey40"
