@@ -3,12 +3,12 @@ if not status_ok then
   return
 end
 
-local status_ok, _ = pcall(require, "mason-lspconfig")
+status_ok, _ = pcall(require, "mason-lspconfig")
 if not status_ok then
   return
 end
 
-require("mason").setup(require("user.lsp.settings.mason").settings)
+require("mason").setup(require("user.lsp.settings.mason_config").settings)
 require("mason-lspconfig").setup(require("user.lsp.settings.mason_lspconfig").settings)
 
 -- Register a handler that will be called for all installed servers.
@@ -22,7 +22,7 @@ require("mason-lspconfig").setup_handlers({
   -- and will be called for each installed server that doesn't have
   -- a dedicated handler.
   function (server_name) -- default handler (optional)
-    require("lspconfig")[server_name].setup { opts }
+    require("lspconfig")[server_name].setup(opts)
   end,
   -- Next, you can provide targeted overrides for specific servers.
   -- ["rust_analyzer"] = function ()
@@ -31,13 +31,12 @@ require("mason-lspconfig").setup_handlers({
   ["sumneko_lua"] = function ()
     local sumneko_opts = require("user.lsp.settings.sumneko_lua")
 	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-    print(opts)
-    require("lspconfig").sumneko_lua.setup { opts }
+    require("lspconfig").sumneko_lua.setup(opts)
   end,
   ["clangd"] = function ()
     local clangd_opts = require("user.lsp.settings.clangd")
 	 	opts = vim.tbl_deep_extend("force", clangd_opts, opts)
-    require("lspconfig").clangd.setup { opts }
+    require("lspconfig").clangd.setup(opts)
   end,
 })
 

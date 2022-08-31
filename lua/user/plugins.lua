@@ -65,7 +65,7 @@ return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  -- use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use 'rstacruz/vim-closer' -- automatically closes brackets on pressing enter
 
 
@@ -75,12 +75,10 @@ return packer.startup(function(use)
 
 
   -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  -- use "lunarvim/darkplus.nvim"
   use 'folke/tokyonight.nvim'
   use {
-  'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
   -- Colorschemes
@@ -101,8 +99,6 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  -- use "neovim/nvim-lspconfig" -- enable LSP
-  -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
