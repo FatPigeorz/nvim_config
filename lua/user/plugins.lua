@@ -105,6 +105,19 @@ return packer.startup(function(use)
       "neovim/nvim-lspconfig",
   }
 
+  -- telescope
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      { 'nvim-telescope/telescope-live-grep-args.nvim' },
+      { 'nvim-telescope/telescope-media-files.nvim' },
+    },
+    config = function()
+      require("telescope").load_extension("live_grep_args")
+    end
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

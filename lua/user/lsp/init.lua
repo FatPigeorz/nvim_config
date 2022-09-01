@@ -5,3 +5,5 @@ end
 
 require("user.lsp.handlers").setup()
 require("user.lsp.mason")
+
+-- vim.lsp.set_log_level("debug")
